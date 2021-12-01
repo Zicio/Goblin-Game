@@ -16,12 +16,23 @@ body {
     text-align: center;
 }
 
+.button {
+    font-size: 50px;
+    border: 2px solid black;
+    margin: 10px auto;
+    font-weight: bold;
+    background-color: rgb(6, 204, 22);
+    border-radius: 20%;
+}
+
 .score {
     color: green;
+    display: none;
 }
 
 .misses {
     color: red;
+    display: none;
 }
 
 .cells-container {

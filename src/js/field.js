@@ -10,10 +10,10 @@ export default class Field {
       this.activeCell = null;
       this.falls = this.element.closest('.game').querySelector('.number-of-misses');
       this.score = this.element.closest('.game').querySelector('.number-of-score');
+      this.button = document.querySelector('.button');
+      this.rows = document.querySelectorAll('.row');
     }
     this.getGoblin();
-    // this.getBanner();
-    this.startOfMotion();
   }
 
   getRandomCell() {
@@ -69,24 +69,32 @@ export default class Field {
     this.startOfMotion();
   }
 
+  startGame() {
+    this.button.style.display = 'none';
+    for (const elem of this.rows) {
+      elem.style.display = 'block';
+    }
+    this.startOfMotion();
+  }
+
+  restartGame() {
+    for (const elem of this.rows) {
+      elem.style.display = null;
+      this.button.style.display = 'block';
+    }
+  }
+
   gameOver(result) {
     clearInterval(this.movement);
     if (document.getElementById('goblin')) {
       document.getElementById('goblin').remove();
     }
-    // if (result === 'win') {
-    //   const data = [...document.querySelector('.score-container').getElementsByTagName('p')];
-    //   for (const elem of data) {
-    //     elem.remove();
-    //   }
-    //   document.querySelector('.score-container').appendChild(this.banner);
-    // }
     result === 'win' ? alert('You Win') : alert('You Lose');
     const continuations = confirm('Do you want to play again?');
     if (continuations) {
       this.score.textContent = '0';
       this.falls.textContent = '0';
-      this.startOfMotion();
+      this.restartGame();
     }
   }
 }
