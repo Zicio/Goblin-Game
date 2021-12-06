@@ -13,7 +13,7 @@ module.exports = merge(common, {
   devServer: {
     open: {
       app: {
-        name: 'firefox',
+        name: 'chrome',
       },
     },
     port: 8080,

@@ -1,6 +1,6 @@
 export default class GamePlay {
   constructor(element, fieldClass) {
-    if (!element || fieldClass) {
+    if (!element || !fieldClass) {
       throw new Error('Элемент не существует');
     } else {
       this.element = element;
